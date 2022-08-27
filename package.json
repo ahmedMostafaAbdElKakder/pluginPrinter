@@ -1,0 +1,25 @@
+{
+  "name": "printerCustom",
+  "version": "0.0.1",
+  "description": "custom plugin for print",
+  "cordova": {
+    "id": "printerCustom",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedMostafaAbdElKakder/pluginPrinter.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "ahmedmostafa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedMostafaAbdElKakder/pluginPrinter/issues"
+  },
+  "homepage": "https://github.com/ahmedMostafaAbdElKakder/pluginPrinter#readme"
+}
