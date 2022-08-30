@@ -15,30 +15,19 @@ public class printers extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("coolMethod")) {
-            String message = args.getString(0);
-            Log.v(TAG, "coolMethod called with message =" + message);
-            this.coolMethod(message, callbackContext);
+               int arg1 = args.getInt(0);
+            int arg2 = args.getInt(1);
+            /* Indicating success is failure is done by calling the appropriate method on the 
+            callbackContext.*/
+            int result = arg1 + arg2;
+            callbackContext.success("result calculated in Java: " + result);
             return true;
         }
         return false;
         }
 
     private void coolMethod(String message, CallbackContext callbackContext) {
-          Log.v(TAG, "Inject's coolMethod called ,message="+message);
-          messageReceived = message;
         if (message != null && message.length() > 0) {
-                cordova.getActivity().runOnUiThread(new Runnable() {
-            public void run() {
-
-            final android.widget.Toast toast = android.widget.Toast.makeText(
-              cordova.getActivity().getWindow().getContext(),
-              messageReceived,
-              android.widget.Toast.LENGTH_LONG 
-                );
-                toast.setGravity(GRAVITY_CENTER, 0, 0);
-                toast.show();
-            }
-            });
             callbackContext.success(message);
         } else {
             callbackContext.error("Expected one non-empty string argument.");
